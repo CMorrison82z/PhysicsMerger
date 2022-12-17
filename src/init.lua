@@ -6,13 +6,6 @@ end
 
 local RunService = game:GetService("RunService")
 
-local function GetModelBoundingBox(model : Model)
-	local cf, s = model:GetBoundingBox()
-	local modelPivot = model:GetPivot()
-
-	return cf * (modelPivot - modelPivot.Position):Inverse(), s
-end
-
 local data = {}
 
 local m = {}
@@ -59,7 +52,7 @@ function m.SetOnStepped(_data, f : (instance : BasePart | Model, lastPivot : CFr
 	_data._onStepped = f
 end
 
-RunService.Stepped:Connect(function(time, deltaTime)
+RunService.Stepped:Connect(function(_, deltaTime)
 	for _, _data in data do
 		if _data._onStepped then
 			local nextCF = _data._onStepped(_data.Object, _data.Pivot, deltaTime)
