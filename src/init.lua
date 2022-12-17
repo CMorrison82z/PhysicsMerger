@@ -1,7 +1,7 @@
 local SHOW_REMINDER = true
 
 if SHOW_REMINDER then
-	warn("PhysicsMerger will warn you if any objects are Grounded. This severely impacts performance and should be turned off when confident in usage.")
+	warn("PhysicsMerger will warn you if any objects are Grounded.\n This severely impacts performance and should be turned off when confident in usage.")
 end
 
 local RunService = game:GetService("RunService")
